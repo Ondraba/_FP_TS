@@ -1,0 +1,18 @@
+[
+    {"id": "TITLE", "defaultMessage": "ApiTree s.r.o."},
+
+    {"id": "PAGE_CONTACT_SUBHEADER_ADDRESS", "defaultMessage": "Adresa společnosti"},
+    {"id": "PAGE_CONTACT_SUBHEADER_EMAIL", "defaultMessage": "Kontaktní email"},
+    {"id": "PAGE_CONTACT_SUBHEADER_PHONE", "defaultMessage": "Telefon"},
+
+    {"id": "COMPANY_NAME", "defaultMessage": "Název"},
+    {"id": "COMPANY_IC", "defaultMessage": "IČ"},
+    {"id": "COMPANY_DIC", "defaultMessage": "DIČ"},
+    {"id": "COMPANY_BANKACCOUNT", "defaultMessage": "Číslo účtu"},
+
+    {"id": "TRAINING_REFERENCES", "defaultMessage": "Řekli o nás"},
+    {"id": "HOME_REFERENCES", "defaultMessage": "Řekli o nás"},
+
+    {"id": "FOOTER_ABOUT_COMPANY", "defaultMessage": "O společnosti"},
+    {"id": "FOOTER_WEB_MAP", "defaultMessage": "Mapa webu"}
+]

@@ -1,0 +1,19 @@
+type PageContentTextBlock {
+    id: ID!
+    title: String!
+    subtitle: String!
+    listItems: [String!]
+    richText: RichText
+}
+
+type AdminMutationPageContentTextBlock {
+    create(input: PageContentTextBlockInput!): PageContentTextBlock!
+    save(id: ID!, input: PageContentTextBlockInput!): PageContentTextBlock!
+}
+
+input PageContentTextBlockInput {
+    title: String!
+    subtitle: String!
+    listItems: [String!]
+    richText: RichTextInput
+}

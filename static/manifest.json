@@ -1,0 +1,8 @@
+{
+  "name": "ApiTree s.r.o",
+  "short_name": "ApiTree",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#9c27b0",
+  "background_color": "#fafafa"
+}

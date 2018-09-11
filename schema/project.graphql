@@ -1,0 +1,24 @@
+type Project {
+    id: ID!
+    name: String!
+    subtitle: String!
+    description: String!
+    imageSrc: String!
+    fullImageSrc: String!
+    links: [Link!]
+    order: Int!
+}
+
+type AdminMutationProject {
+    create(input: ProjectInput!): Project!
+    save(id: ID!, input: ProjectInput!): Project!
+}
+
+input ProjectInput {
+    name: String!
+    subtitle: String!
+    description: String!
+    imageSrc: String!
+    links: [LinkInput!]
+    order: Int!
+}

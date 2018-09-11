@@ -1,0 +1,21 @@
+type RemoteBlog {
+    id: ID!
+    published: String
+    updated: String
+    url: String
+    title: String
+    author: RemoteBlogAuthor
+    imageUrl: String
+    labels: [String]
+}
+
+type RemoteBlogAuthor {
+    id: ID!
+    displayName: String
+    url: String
+    image: RemoteBlogAuthorImage
+}
+
+type RemoteBlogAuthorImage {
+    url: String
+}

@@ -1,0 +1,110 @@
+type Page {
+    id: ID!
+    key: String!
+    name: String!
+    title: String!
+    lastWhiteBlock: Boolean!
+    header: PageHeader!
+    subheaderBlocks: [SubheaderBlock!]
+    subheaderNotification: SubheaderNotification
+    contentBlocks: [PageContentBlock!]
+    order: Int!
+}
+
+type PageHeader {
+    id: ID!
+    descriptions: [PageHeaderDescription!]!
+    imageSrc: String!
+    fullImageSrc: String!
+    buttons: [PageHeaderButton!]
+}
+
+type PageHeaderDescription {
+    id: ID!
+    text: String!
+    order: Int!
+}
+
+type PageHeaderButton {
+    id: ID!
+    name: String!
+    url: String!
+    white: Boolean!
+    external: Boolean!
+    order: Int!
+}
+
+type SubheaderBlock {
+    id: ID!
+    icon: String!
+    title: String!
+    subtitle: String!
+    order: Int!
+}
+
+type PageContentBlock {
+    id: ID!
+    type: PageContentType!
+    textBlock: PageContentTextBlock
+    order: Int!
+}
+
+enum PageContentType {
+    PROJECTS
+    GOOGLE_MAP
+    OUR_PEOPLE
+    TRAINING_REFERENCE
+    HOME_REFERENCE
+    TECHNOLOGIES
+    TEXT
+    BLOG_CAROUSEL
+}
+
+type AdminMutationPage {
+    create(input: PageInput!): Page!
+    save(id: ID!, input: PageInput!): Page!
+}
+
+input PageInput {
+    key: String!
+    title: String!
+    name: String!
+    lastWhiteBlock: Boolean!
+    header: PageHeaderInput!
+    subheaderBlocks: [PageSubheaderBlockInput!]
+    subheaderNotification: ID
+    contentBlocks: [PageContentBlockInput!]
+    order: Int!
+}
+
+input PageHeaderInput {
+    descriptions: [PageHeaderDescriptionInput!]!
+    imageSrc: String!
+    buttons: [PageHeaderButtonInput!]
+}
+
+input PageHeaderDescriptionInput {
+    text: String!
+    order: Int!
+}
+
+input PageHeaderButtonInput {
+    name: String!
+    url: String!
+    white: Boolean!
+    external: Boolean!
+    order: Int!
+}
+
+input PageSubheaderBlockInput {
+    icon: String!
+    title: String!
+    subtitle: String!
+    order: Int!
+}
+
+input PageContentBlockInput {
+    type: PageContentType!
+    textBlock: String
+    order: Int!
+}

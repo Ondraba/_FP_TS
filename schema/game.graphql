@@ -1,0 +1,19 @@
+
+type Game {
+    _id: ID!
+    title: String!
+    perex: String!
+    ranking: Int!
+    platform: String!
+}
+
+type MutationGame{
+    create(input: GameInput!): Game!
+}
+
+input GameInput {
+    title: String!
+    perex: String!
+    ranking: Int!
+    platform: String!
+}

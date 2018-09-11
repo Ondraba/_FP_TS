@@ -1,0 +1,13 @@
+type Label {
+    id: ID!
+    name: String!
+}
+
+input LabelInput {
+    name: String!
+}
+
+type AdminMutationLabel {
+    create(input: LabelInput!): Label!
+    save(id: ID!, input: LabelInput!): Label!
+}

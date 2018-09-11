@@ -1,0 +1,20 @@
+type Technology {
+    id: ID!
+    name: String!
+    description: String!
+    imageSrc: String!
+    fullImageSrc: String!
+    order: Int!
+}
+
+type AdminMutationTechnology {
+    create(input: TechnologyInput!): Technology!
+    save(id: ID!, input: TechnologyInput!): Technology!
+}
+
+input TechnologyInput {
+    name: String!
+    description: String!
+    imageSrc: String!
+    order: Int!
+}

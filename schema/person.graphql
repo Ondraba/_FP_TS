@@ -1,0 +1,36 @@
+type Person {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    position: String!
+    imageSrc: String!
+    fullImageSrc: String!
+    description: String!
+    our: Boolean!
+    homeReference: Boolean!
+    trainingReference: Boolean!
+    links: [Link!]
+    phone: String
+    email: String
+    order: Int!
+}
+
+type AdminMutationPerson {
+    create(input: PersonInput!): Person!
+    save(id: ID!, input: PersonInput!): Person!
+}
+
+input PersonInput {
+    firstName: String!
+    lastName: String!
+    position: String!
+    imageSrc: String!
+    description: String!
+    our: Boolean!
+    homeReference: Boolean!
+    trainingReference: Boolean!
+    links: [LinkInput!]
+    phone: String
+    email: String
+    order: Int!
+}

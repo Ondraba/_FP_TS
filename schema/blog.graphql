@@ -1,0 +1,39 @@
+type BlogPost {
+    id: ID!
+    key: String!
+    title: String!
+    subtitle: String!
+    imageSrc: String!
+    fullImageSrc: String!
+    published: Boolean!
+    publishedDate: String!
+    author: String!
+    content: String!
+    labels: [Label!]!
+}
+
+type BlogQuery {
+    latestsPosts(limit: Int!): [BlogPost!]
+    findPostByKey(key: String!): BlogPost
+}
+
+input BlogPostInput {
+    key: String!
+    title: String!
+    subtitle: String!
+    imageSrc: String!
+    published: Boolean!
+    publishedDate: String!
+    author: String!
+    content: String!
+    labels: [String!]!
+}
+
+type AdminMutationPostBlog {
+    create(input: BlogPostInput!): BlogPost!
+    save(id: ID!, input: BlogPostInput!): BlogPost!
+}
+
+type AdminMutationBlog {
+    post: AdminMutationPostBlog!
+}

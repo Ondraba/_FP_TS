@@ -1,0 +1,114 @@
+type RichTextInlineStyleRange {
+    id: ID!
+    offset: Int!
+    length: Int!
+    style: String!
+}
+
+input RichTextInlineStyleRangeInput {
+    offset: Int!
+    length: Int!
+    style: String!
+}
+
+type RichTextEntityRange {
+    id: ID!
+    offset: Int!
+    length: Int!
+    key: Int!
+}
+
+input RichTextEntityRangeInput {
+    offset: Int!
+    length: Int!
+    key: Int!
+}
+
+type RichTextData {
+    id: String
+}
+
+input RichTextDataInput {
+    id: String
+}
+
+type RichTextBlock {
+    id: ID!
+    key: String!
+    text: String!
+    type: String!
+    depth: Int!
+    inlineStyleRanges: [RichTextInlineStyleRange!]
+    entityRanges: [RichTextEntityRange!]
+    data: RichTextData!
+}
+
+input RichTextBlockInput {
+    key: String!
+    text: String!
+    type: String!
+    depth: Int!
+    inlineStyleRanges: [RichTextInlineStyleRangeInput!]
+    entityRanges: [RichTextEntityRangeInput!]
+    data: RichTextDataInput!
+}
+
+enum RichTextEntityType {
+    LINK
+    TOKEN
+    PHOTO
+    IMAGE
+    EMBED
+}
+
+enum RichTextEntityMutability {
+    MUTABLE
+    IMMUTABLE
+    SEGMENTED
+}
+
+type RichTextLinkData {
+    type: String
+    href: String
+    target: String
+}
+
+type RichTextEmbedData {
+    type: String
+    url: String
+    html: String
+}
+
+union RichTextEntityData = RichTextLinkData | RichTextEmbedData
+
+input RichTextEntityDataInput {
+    type: String!
+    # EMBED fields
+    url: String
+    html: String
+    # LINK fields
+    href: String
+    target: String
+}
+type RichTextEntity {
+    type: RichTextEntityType
+    mutability: RichTextEntityMutability
+    data: RichTextEntityData
+}
+
+input RichTextEntityInput {
+    type: RichTextEntityType
+    mutability: RichTextEntityMutability
+    data: RichTextEntityDataInput
+}
+
+type RichText {
+    id: ID!
+    blocks: [RichTextBlock!]!
+    entityMap: [RichTextEntity!]
+}
+
+input RichTextInput {
+    blocks: [RichTextBlockInput!]!
+    entityMap: [RichTextEntityInput!]
+}

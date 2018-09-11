@@ -1,0 +1,21 @@
+type CreateInTechnology {
+    id: ID!
+    name: String!
+    icon: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}
+
+type AdminMutationCreateInTechnology {
+    create(input: CreateInTechnologyInput!): CreateInTechnology!
+    save(id: ID!, input: CreateInTechnologyInput!): CreateInTechnology!
+}
+
+input CreateInTechnologyInput {
+    name: String!
+    icon: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}

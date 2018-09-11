@@ -1,0 +1,61 @@
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+#home {
+  background-image: url("/static/images/background/page-top-compressed.jpg");
+}
+
+#about {
+  background-image: url("/static/images/background/about-us-compressed.jpg");
+}
+
+#reference {
+  background-image: url("/static/images/background/newsletter-compressed.jpg");
+}
+
+#contact {
+  background-image: url("/static/images/background/contact-compressed.jpg");
+}
+
+#headernavigation {
+  padding-right: 10%;
+}
+
+#headernavigation li a {
+  height: 60px;
+  padding-top: 20px;
+  color: #fff;
+}
+
+#headernavigation li.active a {
+  background-color: #007985;
+}
+
+#headernavigation li:not(.active) a:hover {
+  color: #007985;
+}
+
+.navbar-default {
+  height: 60px;
+  background-color: rgba(0, 39, 58, .6);
+  border-color: transparent;
+}
+
+@media (max-width: 768px) {
+
+  #main-menu nav {
+    margin-top: 5px;
+    border: 0;
+  }
+
+  #headernavigation {
+    margin-top: 0;
+    padding-right: 0;
+    background-color: rgba(0, 39, 58, .6);
+  }
+
+  #main-menu .navbar-toggle {
+    color: #007985;
+    border-color: #007985;
+  }
+
+}

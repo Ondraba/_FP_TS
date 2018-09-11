@@ -1,0 +1,22 @@
+replicaCount: 1
+
+domain:
+
+image:
+  repositoryUrl:
+  tag:
+  pullSecrets:
+    server:
+    username:
+    password:
+    email:
+
+app:
+  urlCloudImage:
+
+database:
+  host:
+  port:
+  name:
+  user:
+  password:

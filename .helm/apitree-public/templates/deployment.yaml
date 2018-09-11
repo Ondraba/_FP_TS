@@ -1,0 +1,86 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "chart.fullname" . }}-deployment
+  labels:
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    app: {{ template "chart.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "chart.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ required "Value image.repositoryUrl is not set!" .Values.image.repositoryUrl }}/{{ .Chart.Name }}:{{ required "Value image.tag is not set!" .Values.image.tag }}
+          env:
+          - name: PORT
+            value: "8080"
+          - name: NODE_ENV
+            value: "production"
+          - name: K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: DATABASE_HOST
+            valueFrom:
+              secretKeyRef:
+                name: database-secret
+                key: DATABASE_HOST
+          - name: DATABASE_PORT
+            valueFrom:
+              secretKeyRef:
+                name: database-secret
+                key: DATABASE_PORT
+          - name: DATABASE_NAME
+            valueFrom:
+              secretKeyRef:
+                name: database-secret
+                key: DATABASE_NAME
+          - name: DATABASE_USER
+            valueFrom:
+              secretKeyRef:
+                name: database-secret
+                key: DATABASE_USER
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: database-secret
+                key: DATABASE_PASSWORD
+          - name: URL_CLOUD_IMAGE
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: URL_CLOUD_IMAGE
+          - name: SECRET
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: SECRET
+          - name: BLOG_BASE_URL
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: BLOG_BASE_URL
+          - name: BLOG_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: BLOG_API_KEY
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 15
+            timeoutSeconds: 1
+            periodSeconds: 10
+      imagePullSecrets:
+      - name: image-secret

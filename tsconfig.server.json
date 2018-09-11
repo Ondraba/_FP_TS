@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "dist/",
+        "baseUrl": "."
+    },
+    "include": ["server/**/*.ts", "shared/**/*.ts"],
+    "paths": {
+        "@graphql-model": ["./shared/graphql.ts"]
+    }
+}

@@ -1,0 +1,95 @@
+# import * from "admin.graphql"
+# import * from "blog.graphql"
+# import * from "company.graphql"
+# import * from "createInTechnology.graphql"
+# import * from "label.graphql"
+# import * from "page.graphql"
+# import * from "pageContentTextBlock.graphql"
+# import * from "person.graphql"
+# import * from "project.graphql"
+# import * from "remoteBlog.graphql"
+# import * from "richText.graphql"
+# import * from "subheaderNotification.graphql"
+# import * from "technology.graphql"
+# import * from "game.graphql"
+
+type Query {
+    admin: AdminQuery
+    blog: BlogQuery
+    company: Company!
+    pages: [Page!]!
+    page(key: String!): Page!
+    pageContentTextBlock(id: ID!): PageContentTextBlock!
+    createInTechnologies: [CreateInTechnology!]!
+    technologies: [Technology!]!
+    technology(id: ID!): Technology!
+    ourPeople: [Person!]!
+    trainingReferences: [Person!]!
+    homeReferences: [Person!]!
+    projects: [Project!]!
+    latestRemoteBlogPosts: [RemoteBlog]
+    labels: Label
+    games: [Game!]!
+}
+
+type Mutation {
+    admin: AdminMutation
+    game: MutationGame
+}
+
+type AdminQuery {
+    me: Admin!
+    admins: [Admin!]!
+    admin(id: ID!): Admin!
+    pageContentTextBlocks: [PageContentTextBlock!]!
+    pageContentTextBlock(id: ID!): PageContentTextBlock!
+    persons: [Person!]!
+    person(id: ID!): Person!
+    projects: [Project!]!
+    project(id: ID!): Project!
+    technologies: [Technology!]!
+    technology(id: ID!): Technology!
+    companies: [Company!]!
+    company(id: ID!): Company!
+    createInTechnologies: [CreateInTechnology!]!
+    createInTechnology(id: ID!): CreateInTechnology!
+    pages: [Page!]!
+    page(id: ID!): Page!
+    subheaderNotifications: [SubheaderNotification!]!
+    subheaderNotification(id: ID!): SubheaderNotification!
+    blogPosts: [BlogPost!]!
+    blogPost(id: ID!): BlogPost!
+    labels: [Label!]!
+    label(id: ID!): Label!
+}
+
+type AdminMutation {
+    admin: AdminMutationAdmin!
+    pageContentTextBlock: AdminMutationPageContentTextBlock!
+    person: AdminMutationPerson!
+    project: AdminMutationProject!
+    technology: AdminMutationTechnology!
+    company: AdminMutationCompany!
+    createInTechnology: AdminMutationCreateInTechnology!
+    subheaderNotification: AdminMutationSubheaderNotification!
+    page: AdminMutationPage!
+    blog: AdminMutationBlog!
+    label: AdminMutationLabel!
+}
+
+type Link {
+    id: ID!
+    name: String!
+    icon: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}
+
+input LinkInput {
+    name: String!
+    icon: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}

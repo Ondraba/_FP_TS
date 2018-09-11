@@ -1,0 +1,16 @@
+.idea/
+.next/
+database-dump/
+.vscode/
+dist/
+node_modules/
+coverage/
+local-files/
+
+.env
+.coveralls.yml
+
+/graphql.schema.graphql
+/graphql.schema.json
+
+secret-values.yaml

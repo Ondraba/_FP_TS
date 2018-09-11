@@ -1,0 +1,30 @@
+type SubheaderNotification {
+    id: ID!
+    text: String!
+    links: [SubheaderNotificationLink!]
+}
+
+type SubheaderNotificationLink {
+    id: ID!
+    name: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}
+
+type AdminMutationSubheaderNotification {
+    create(input: SubheaderNotificationInput!): SubheaderNotification!
+    save(id: ID!, input: SubheaderNotificationInput!): SubheaderNotification!
+}
+
+input SubheaderNotificationInput {
+    text: String!
+    links: [SubheaderNotificationLinkInput!]
+}
+
+input SubheaderNotificationLinkInput {
+    name: String!
+    url: String!
+    external: Boolean!
+    order: Int!
+}

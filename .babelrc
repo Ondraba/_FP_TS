@@ -1,0 +1,29 @@
+{
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@client": "./client",
+                    "@graphql-model": "./shared/graphql.ts"
+                }
+            }
+        ]
+    ],
+    "presets": ["next/babel", "@zeit/next-typescript/babel"],
+    "env": {
+        "development": {
+            "plugins": ["react-intl"]
+        },
+        "production": {
+            "plugins": [
+                [
+                    "react-intl",
+                    {
+                        "messagesDir": "lang/.messages/"
+                    }
+                ]
+            ]
+        }
+    }
+}

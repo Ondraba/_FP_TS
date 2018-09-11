@@ -1,0 +1,27 @@
+type Admin {
+    id: ID!
+    login: String!
+    firstName: String!
+    lastName: String!
+}
+
+type AdminMutationAdmin {
+    create(input: AdminInput!): Admin!
+    save(id: ID!, input: AdminSaveInput!): Admin!
+}
+
+input AdminInput {
+    login: String!
+    firstName: String!
+    lastName: String!
+    password: String!
+    passwordAgain: String!
+}
+
+input AdminSaveInput {
+    login: String!
+    firstName: String!
+    lastName: String!
+    password: String
+    passwordAgain: String
+}

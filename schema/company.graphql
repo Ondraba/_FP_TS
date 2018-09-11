@@ -1,0 +1,39 @@
+type Company {
+    id: ID!
+    name: String!
+    ic: String!
+    dic: String!
+    bankAccount: String!
+    courtDescription: String!
+    phone: String!
+    email: String!
+    address: CompanyAddress!
+    links: [Link!]!
+    default: Boolean!
+}
+
+type CompanyAddress {
+    street: String!
+    city: String!
+    zipPostalCode: String!
+}
+
+type AdminMutationCompany {
+    create(input: CompanyInput!): Company!
+    save(id: ID!, input: CompanyInput!): Company!
+}
+
+input CompanyInput {
+    name: String!
+    ic: String!
+    dic: String!
+    bankAccount: String!
+    courtDescription: String!
+    phone: String!
+    email: String!
+    street: String!
+    city: String!
+    zipPostalCode: String!
+    links: [LinkInput!]!
+    default: Boolean!
+}
